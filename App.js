@@ -2,11 +2,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import MainFile from './src/MainFile';
+import Screens from './src/threeScreens/Screens';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <MainFile />
+      {/* <MainFile /> */}
+      <Screens />
     </NavigationContainer>
   );
 };
