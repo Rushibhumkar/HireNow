@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View, Image, Linking } from 'react-native';
 
-const AcceptReq = () => {
+const AcceptReq = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -41,7 +41,8 @@ const AcceptReq = () => {
       </TouchableOpacity> */}
       <View style={[styles.center]}>
         <TouchableOpacity style={styles.mecData}
-          onPress={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=currentLocation`)}
+          // onPress={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=currentLocation`)}
+          onPress={() => navigation.navigate('MoreInfo')}
         >
           <Text style={styles.mecDataTxt}>Show Mechanic Data</Text>
         </TouchableOpacity>

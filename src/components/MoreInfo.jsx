@@ -23,7 +23,7 @@ const MoreInfo = ({ navigation, route }) => {
                                 <Text style={styles.titleText} >{item.location}</Text>
                                 <Text style={styles.titleText} >Id :{item.UID}</Text>
                                 <TouchableOpacity style={[styles.locationBtn]}
-                                    onPress={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=pune`)}
+                                    onPress={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=`)}
                                 >
                                     <Text style={{ color: '#fff', fontSize: 16, fontWeight: 'bold', textAlign: 'center', padding: 5 }}>Show Location</Text>
                                 </TouchableOpacity>
