@@ -116,6 +116,8 @@ const Card = ({ mech, problem }) => {
                     position => {
                         console.log(position);
                         setLocation(position);
+                        // getLocation();
+                        Linking.openURL(`sms:number=${mobUrl}?body=https://www.google.com/maps/search/?api=1&query=${position.coords.latitude},${position.coords.longitude}`)
                     },
                     error => {
                         // See error code charts below.
@@ -174,8 +176,8 @@ const Card = ({ mech, problem }) => {
                 <TouchableOpacity
                     onPress={() => {
                         // Linking.openURL(`whatsapp://send?phone=${mech.phoneNum}&text=Problems:\n${problem}`)
+
                         getLocation();
-                        Linking.openURL(`sms:number=${mobUrl}?body=https://www.google.com/maps/search/?api=1&query=${location.coords.latitude},${location.coords.longitude}`)
                     }}
                     style={[styles.acceptBtn]}
                 >

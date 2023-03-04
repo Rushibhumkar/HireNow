@@ -1,79 +1,66 @@
 import { StyleSheet, Text, TextInput, Alert, TouchableOpacity, ScrollView, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import userinfo from '../data/UserInfo'
+// import userinfo from '../data/UserInfo'
+import oneMech from './oneMech'
 
 const CusDetails = ({ navigation, route }) => {
 
   const [problem, setProblem] = useState(false);
-  // const [myName, setMyName] = useState(true);
-  // const [vehType, setVehType] = useState(true);
+  const [myName, setMyName] = useState(oneMech.name);
+  const [vehType, setVehType] = useState(oneMech.vehicleType);
 
   return (
-
     <ScrollView style={{ flex: 1 }}>
-      {userinfo.map((item) => {
+      <View>
+        <View style={[styles.mainCont]}
+        >
+          <Text style={[styles.txt, styles.lfStyle]}>Write Your Problem Here...</Text>
 
+        </View>
+        <View style={[styles.inputCont, styles.mainCont]} >
+          <View style={[styles.row, styles.ipSection]} >
+            <Text style={[styles.ipText, styles.gtxt]} >Name : </Text>
+            <TextInput
+              style={[styles.ipStyle, styles.emailInput]}
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor='grey'
+              value={myName}
+              onChangeText={(text) => setMyName(text)}
+            />
 
+          </View>
+          <View style={[styles.row, styles.ipSection]}>
+            <Text style={[styles.ipText, styles.gtxt]} >Type of Vehicle</Text>
+            <TextInput
+              style={[styles.ipStyle, styles.passwordStyle]}
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor='grey'
+              multiline={true}
+              minHeight={80}
+              value={vehType}
+              onChangeText={(text) => { setVehType(text) }}
+            />
 
-        // const myName = item.name;
-        // const vehType = item.VehicleType;
+          </View>
+          <View style={[styles.row, styles.ipSection]}>
+            <Text style={[styles.ipText, styles.gtxt]} >Vehicle Problem :</Text>
+            <TextInput
+              style={[styles.ipStyle, styles.problemTextIp]}
+              autoCapitalize="none"
+              autoCorrect={false}
+              multiline={true}
+              numberOfLines={5}
+              minHeight={100}
+              placeholder="Type problem here..."
+              placeholderTextColor='grey'
+              value={problem}
+              onChangeText={setProblem}
+            />
 
-        return (
-          <View key={item.id}
-
-          >
-            <View style={[styles.mainCont]}
-            >
-              <Text style={[styles.txt, styles.lfStyle]}>Write Your Problem Here...</Text>
-
-            </View>
-            <View style={[styles.inputCont, styles.mainCont]} >
-              <View style={[styles.row, styles.ipSection]} >
-                <Text style={[styles.ipText, styles.gtxt]} >Name : </Text>
-                <TextInput
-                  style={[styles.ipStyle, styles.emailInput]}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  placeholderTextColor='grey'
-                  value={item.name}
-                // onChangeText={() => { setMyName(false) }}
-                />
-
-              </View>
-              <View style={[styles.row, styles.ipSection]}>
-                <Text style={[styles.ipText, styles.gtxt]} >Type of Vehicle</Text>
-                <TextInput
-                  style={[styles.ipStyle, styles.passwordStyle]}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  placeholderTextColor='grey'
-                  multiline={true}
-                  minHeight={80}
-                  // numberOfLines={4}
-
-                  // height={10}
-                  value={item.VehicleType}
-                // onChangeText={() => { setVehType(false) }}
-                />
-
-              </View>
-              <View style={[styles.row, styles.ipSection]}>
-                <Text style={[styles.ipText, styles.gtxt]} >Vehicle Problem :</Text>
-                <TextInput
-                  style={[styles.ipStyle, styles.problemTextIp]}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  multiline={true}
-                  numberOfLines={5}
-                  minHeight={100}
-                  placeholder="Type problem here..."
-                  placeholderTextColor='grey'
-                  value={problem}
-                  onChangeText={setProblem}
-                />
-
-              </View>
-              {/* <View style={[styles.row,styles.ipSection]} >
+          </View>
+          {/* <View style={[styles.row,styles.ipSection]} >
             <Text style={[styles.ipText,styles.gtxt]} >Location : </Text>
             <TextInput 
               style={[styles.ipStyle]} 
@@ -83,19 +70,16 @@ const CusDetails = ({ navigation, route }) => {
               placeholderTextColor='grey'
             />
           </View> */}
-            </View>
-            <View style={[styles.row, styles.center]}>
-              <TouchableOpacity
-                onPress={() => { navigation.navigate('MechanicList', { problem }) }}
-                style={[styles.acceptBtn]}
-              >
-                <Text style={styles.cw}>Submit</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )
-      })}
-
+        </View>
+        <View style={[styles.row, styles.center]}>
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('MechanicList', { problem }) }}
+            style={[styles.acceptBtn]}
+          >
+            <Text style={styles.cw}>Submit</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </ScrollView>
   )
 }
