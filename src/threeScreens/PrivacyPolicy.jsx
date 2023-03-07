@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         paddingBottom: 8
     },
     btn: {
-        backgroundColor: '#6911ff',
+        backgroundColor: '#5D5FEF',
         alignItems: 'center',
         marginHorizontal: 50,
         marginVertical: 10,

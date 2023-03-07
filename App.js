@@ -7,8 +7,8 @@ import Screens from './src/threeScreens/Screens';
 const App = () => {
   return (
     <NavigationContainer>
-      <MainFile />
-      {/* <Screens /> */}
+      {/* <MainFile /> */}
+      <Screens />
     </NavigationContainer>
   );
 };

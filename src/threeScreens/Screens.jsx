@@ -15,7 +15,7 @@ const Screens = () => {
                 headerTitleAlign: 'center',
                 headerTintColor: '#fff',
                 // headerBackground: '#8000FF'
-                headerStyle: { backgroundColor: '#6911ff' }
+                headerStyle: { backgroundColor: '#5D5FEF' }
             }}
 
             initialRouteName='PrivacyPolicy'
